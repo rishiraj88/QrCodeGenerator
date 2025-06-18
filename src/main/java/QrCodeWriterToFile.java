@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class QrCodeWriterToFile {
     static String write(String inMessage) throws IOException {
-        File file = new File("tmp.png");
         ByteArrayOutputStream outputStream = QRCode.from(inMessage).to(ImageType.PNG).stream();
+        File file = new File("tmp.png");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         fileOutputStream.write(outputStream.toByteArray());
         fileOutputStream.close();

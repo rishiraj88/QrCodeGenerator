@@ -11,8 +11,16 @@ import java.io.IOException;
 
 public class QrCodeReaderFromFile {
     static String read(String filePath) throws IOException, NotFoundException {
-        File file = new File(filePath);
-        Result result = new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(new BufferedImageLuminanceSource(ImageIO.read(file)))));
+        Result result = new MultiFormatReader()
+                .decode(
+                    new BinaryBitmap(
+                            new HybridBinarizer(
+                                    new BufferedImageLuminanceSource(
+                                            ImageIO.read(new File(filePath))
+                                    )
+                            )
+                    )
+        );
         return result.getText();
     }
 }
