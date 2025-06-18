@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class QrCodeWriterToFile {
+public class QrCodeWriterFromTextMessageToFile {
     static String write(String inMessage) throws IOException {
         ByteArrayOutputStream outputStream = QRCode.from(inMessage).to(ImageType.PNG).stream();
         File file = new File("tmp.png");
