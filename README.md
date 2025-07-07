@@ -1,5 +1,5 @@
 # QR Code Generator
-QR code generator and QR code reader,quite useful in various businesses and super versatile.
+QR code generator and QR code reader,quite useful in various businesses and highly versatile.
 
 ## Main Features
 - to read QR code from an image file and display in text format.
