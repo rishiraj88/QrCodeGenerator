@@ -1,18 +1,15 @@
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import module java.base;
 
 public class QrCodeWriterFromTextMessageToFile {
     static String write(String inMessage) throws IOException {
         ByteArrayOutputStream outputStream = QRCode.from(inMessage).to(ImageType.PNG).stream();
-        File file = new File("tmp.png");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        String fileName = "tmp.png";
+        FileOutputStream fileOutputStream = new FileOutputStream(fileName);
         fileOutputStream.write(outputStream.toByteArray());
         fileOutputStream.close();
-        return file.getAbsolutePath();
+        return Paths.get(fileName).toAbsolutePath().toString();
     }
 }
